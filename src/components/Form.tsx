@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
-import toast, { Toaster } from 'react-hot-toast';
-import axios from 'axios';
 import './Audit.css';
 
 
@@ -302,14 +300,14 @@ const Form: React.FC = () => {
 
   const handleNext = () => {
     if (step < questions.length - 1) {
-      setNextLoading(true); // Start loading
+      setNextLoading(true);
       setAnimationClass("slide-out");
   
       setTimeout(() => {
-        setStep(step + 1); // Move to the next step
-        setAnimationClass("slide-in"); // Start the slide-in animation
-        setNextLoading(false); // Stop loading
-      }, 500); // Delay to simulate loading
+        setStep(step + 1);
+        setAnimationClass("slide-in");
+        setNextLoading(false);
+      }, 500); 
     }
   };
   
@@ -366,7 +364,6 @@ const Form: React.FC = () => {
           </div>
         </div>
 
-        {/* Step 1 */}
         {step === 0 && (
           <Form__ className={`form-wrapper ${animationClass}`}>
             <FormWrapper>
@@ -406,13 +403,13 @@ const Form: React.FC = () => {
                 ) : (
                   step === questions.length - 1 ? "Submit" : "Next"
                 )}
+                <FaArrowRight />
               </SubmitButton>
 
             </FormWrapper>
           </Form__>
         )}
 
-        {/* Step 2 */}
         {step === 1 && (
           <Form__>
             <FormWrapper>
