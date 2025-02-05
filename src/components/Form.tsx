@@ -207,33 +207,6 @@ const FormGroup = styled.div`
   }
 `;
 
-const IssueButtonGroup = styled.div`
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  width: 100%;
-`;
-
-
-const IssueButton = styled.button`
-  padding: 0.8rem 1.6rem;
-  background-color: white;
-  border: 2px solid #333;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-size: 0.9rem;
-
-  &:hover {
-    background-color: #333;
-    color: white;
-  }
-
-  &.selected {
-    background-color: #333;
-    color: white;
-  }
-`;
 
 const SubmitButton = styled.button`
   padding: 1rem 2rem;
@@ -292,9 +265,7 @@ const Form: React.FC = () => {
   const [step, setStep] = useState(0);
   const progress = ((step + 1) / questions.length) * 100;
 
-  const [answers, setAnswers] = useState<Array<string | null>>(
-    Array(questions.length).fill(null)
-  );
+ 
 
   const [nextLoading, setNextLoading] = useState(false);
 
@@ -312,15 +283,15 @@ const Form: React.FC = () => {
   };
   
 
-  const handleBack = () => {
-    if (step > 0) {
-      setAnimationClass("slide-out");
-      setTimeout(() => {
-        setStep(step - 1);
-        setAnimationClass("slide-in");
-      }, 300);
-    }
-  };
+  // const handleBack = () => {
+  //   if (step > 0) {
+  //     setAnimationClass("slide-out");
+  //     setTimeout(() => {
+  //       setStep(step - 1);
+  //       setAnimationClass("slide-in");
+  //     }, 300);
+  //   }
+  // };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -332,9 +303,9 @@ const Form: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async () => {
-    console.log("Form Data Submitted:", formData);
-  };
+  // const handleSubmit = async () => {
+  //   console.log("Form Data Submitted:", formData);
+  // };
 
   return (
     <Container>
